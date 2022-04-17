@@ -1,13 +1,12 @@
-FROM python:3.10-slim
+# 本番環境でcondaを使用しているため3.9.7で統一(condaのpython最新バージョン)
+FROM python:3.9.7-slim
 
 # linuxのパッケージインストールなど
 # RUN apt update
 # RUN apk --update add vim
 
 RUN pip install --upgrade pip
-WORKDIR /var/docker-python
+WORKDIR /var/app
 
-COPY requirements.txt /var/docker-python
-
-# RUN pip install -r requirements.txt
-# CMD ["python", "app/main.py"]
+RUN pip install --upgrade pip && \
+    pip install pipenv
