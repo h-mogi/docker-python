@@ -1,5 +1,10 @@
 version: '3'
 services:
+  selenium:
+    image: selenium/standalone-chrome
+    container_name: 'selenium'
+    volumes:
+      - /dev/shm:/dev/shm
   python3:
     restart: always
     build: .
@@ -7,4 +12,6 @@ services:
     working_dir: '/var/app'
     tty: true
     volumes:
-      - ./app:/var/app
+      - ${SRC_PATH}:/var/app
+    depends_on:
+      - selenium
