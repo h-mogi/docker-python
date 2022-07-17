@@ -1,5 +1,5 @@
 # 本番環境でcondaを使用しているため3.9.7で統一(condaのpython最新バージョン)
-FROM python:3.9.4-slim
+FROM python:3.10.5-slim
 
 ENV PYTHONPATH "${PYTHONPATH}:/var/app/"
 
